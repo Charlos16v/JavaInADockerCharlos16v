@@ -10,14 +10,16 @@ RUN mvn -f /usr/src/app/pom.xml clean package
 
 # On the second stage of the build we use a openjdk11-jre slim buster image.
 FROM openjdk:11-jre-slim-buster
+
 MAINTAINER Carlos Uriel <cdominguez@cifpfbmoll.eu>
+
 # We copy only the artifact we need from the first stage(mvn_build).
 COPY --from=mvn_build /usr/src/app/target/romansGoHome-1.0-SNAPSHOT.jar /usr/app/romansGoHome-1.0-SNAPSHOT.jar
 
 # We indicate the por on wich the container listens for connections.
 EXPOSE 8080
 
-
+# Specify the user to the container.
 ENV USER=appuser
 RUN adduser \
     --disabled-password \
