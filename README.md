@@ -23,7 +23,7 @@ MAINTAINER Carlos Uriel <cdominguez@cifpfbmoll.eu>
 # We copy only the artifact we need from the first stage(mvn_build).
 COPY --from=mvn_build /usr/src/app/target/romansGoHome-1.0-SNAPSHOT.jar /usr/app/romansGoHome-1.0-SNAPSHOT.jar
 
-# We indicate the por on wich the container listens for connections.
+# We indicate the port on wich the container listens for connections.
 EXPOSE 8080
 
 # Specify the user to the container.
