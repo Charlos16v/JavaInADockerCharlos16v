@@ -2,6 +2,13 @@
 
 Exercise to practice the deployment of a JAR file in a Docker image.
 
+You can find the image in DockerHub!
+https://hub.docker.com/repository/docker/charlos16v/romansgohome
+
+## RUN IT:
+```shell
+docker run -it --publish 80:5000 charlos16v/romansgohome
+```
 
 ## Dockerfile:
 ```dockerfile
@@ -23,8 +30,8 @@ MAINTAINER Carlos Uriel <cdominguez@cifpfbmoll.eu>
 # We copy only the artifact we need from the first stage(mvn_build).
 COPY --from=mvn_build /usr/src/app/target/romansGoHome-1.0-SNAPSHOT.jar /usr/app/romansGoHome-1.0-SNAPSHOT.jar
 
-# We indicate the port on wich the container listens for connections.
-EXPOSE 8080
+# We indicate the por on wich the container listens for connections.
+EXPOSE 5000
 
 # Specify the user to the container.
 ENV USER=appuser

@@ -17,7 +17,7 @@ MAINTAINER Carlos Uriel <cdominguez@cifpfbmoll.eu>
 COPY --from=mvn_build /usr/src/app/target/romansGoHome-1.0-SNAPSHOT.jar /usr/app/romansGoHome-1.0-SNAPSHOT.jar
 
 # We indicate the por on wich the container listens for connections.
-EXPOSE 8080
+EXPOSE 5000
 
 # Specify the user to the container.
 ENV USER=appuser
